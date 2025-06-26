@@ -2,7 +2,12 @@
 import './App.css';
 
 function FilterableMovieGrid({movies}) {
-
+return (
+  <div>
+    <SearchBar />
+    <MovieGrid movies = {movies} />
+  </div>
+);
 }
 
 function SearchBar() {
@@ -18,7 +23,7 @@ function ThemeRow() {
 }
 
 function MovieInfo() {
-  
+
 }
 
 
