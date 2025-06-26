@@ -5,25 +5,56 @@ function FilterableMovieGrid({movies}) {
 return (
   <div>
     <SearchBar />
-    <MovieGrid movies = {movies} />
+    <MovieGrid movies={movies} />
   </div>
 );
 }
 
 function SearchBar() {
-
+return (
+  <form>
+    <input type="text" placeholder="Search themes..." />
+  </form>
+);
 }
 
-function MovieGrid() {
-
+function MovieGrid({movies}) {
+return (
+  <>
+    <div>
+    <ThemeRow movies={movies}/>
+    </div>
+    <div>
+    <MovieInfo movies={movies} />
+    </div>
+  </>
+);
 }
 
-function ThemeRow() {
+function ThemeRow({movies}) {
+return (
+  <table>
+    <thead>
+      <tr>
+        <th>Themes Present</th>
+      </tr>
+    </thead>
+    <tbody>Rows will go here</tbody>
+  </table>
 
+);
 }
 
-function MovieInfo() {
-
+function MovieInfo({movies}) {
+return (
+  <>
+    <div>
+      <div>Img here</div>
+      <div>Desc box here</div>
+    </div>
+    <div>Reroll button here</div>
+  </>
+);
 }
 
 
@@ -37,5 +68,5 @@ const MOVIES = [
 ];
 
 export default function App() {
-  return <FilterableMovieGrid movies = {MOVIES} />;
+  return <FilterableMovieGrid movies={MOVIES} />;
 }
