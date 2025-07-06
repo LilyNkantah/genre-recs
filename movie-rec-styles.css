@@ -1,0 +1,70 @@
+body {
+    outline: 1px solid red;
+    overflow-inline: hidden;
+}
+.vertical {
+    border-left: 2px solid grey;
+    height: 100vh;
+    position: absolute;
+    left: 40%;
+}
+
+.horizontal {
+    border-bottom: 2px solid grey;
+    width: 100vw;
+    position: absolute;
+    bottom: 75%;
+}
+
+.centred-header {
+    text-align: center;
+}
+
+.search-area {
+    height: 20%;
+}
+
+.list-items {
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin-top: 3%;
+}
+
+.spaced-list {
+    padding-bottom: 5%;
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    justify-content: flex-start;
+    margin: 10% 0 10% 0;
+}
+
+.movie-pic-box {
+    border: 2px solid grey;
+    border-radius: 5%;
+    width: 40%;
+    height: 100%;
+    margin-right: 5%;
+}
+
+.movie-desc-box {
+    border: 2px solid grey;
+    border-radius: 5%;
+    width: 60%;
+    height: 80%;
+    margin-top: 5%;
+}
+
+.reroll-button {
+    border: 2px solid grey;
+    position: absolute;
+    margin-left: 9%;
+    width: 20%;
+    height: 10%;
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+
