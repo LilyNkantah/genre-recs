@@ -19,16 +19,27 @@ return (
 }
 
 function MovieGrid({movies}) {
-return (
-  <>
-    <div>
-    <ThemeRow movies={movies}/>
-    </div>
-    <div>
-    <MovieInfo movies={movies} />
-    </div>
-  </>
-);
+  const themeEntries = [];
+  
+  movies.forEach((movie) => { 
+    /*iterate through movie.theme for each movie. add it to themeEntries list if it does not already exist
+    if !movie.theme.contains(...) {
+      themeEntries.push(
+        <ThemeRow theme={movie.theme[i]} />
+      ) 
+    }*/
+  });
+
+  return (
+    <>
+      <div>
+        <ThemeRow movies={movies}/>
+      </div>
+      <div>
+        <MovieInfo movies={movies} />
+      </div>
+    </>
+  );
 }
 
 function ThemeRow({movies}) {
