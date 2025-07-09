@@ -15,12 +15,17 @@
         </header>
 
         <main>
-            <div class="container">
-                <div class="search-area">This is the search area</div>
+            <div class="container-fluid">
+                <div class="search-area">
+                    <form>
+                        <input type="search" name="theme-searcher" placeholder="Search for themes..." />
+                        <input type="submit" value="Add Theme" />
+                    </form>
+                </div>
                 <div class="horizontal"></div>
                 <div class="row">
 
-                    <div class="col order-1" style="margin-top: 2.5%">
+                    <div class="col-4" style="margin-top: 2.5%">
                         <h2 class="spaced-list">Themes Present:</h2>
                         <ul class="list-items">
                             <li class="spaced-list">Theme 1</li>
@@ -30,8 +35,9 @@
                         </ul>
                     </div>
 
-                    <div class="vertical"></div>
-                    <div class="col order-2" style="margin-top: 2.5%">
+                    
+                    <div class="col-6" style="margin-top: 2.5%">
+                        <div class="vertical"></div>
                         <h2 class="centred-header">Chosen Title:</h2>
                         <div class="flex">
                             <div class="movie-pic-box"></div>
