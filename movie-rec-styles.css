@@ -1,29 +1,51 @@
+/*
+text & borders: purple #8C51BC
+primary background: baby blue #B7E0F2
+buttons etc: lighter purple #F0E1FF
+*/
 html {
     min-height: 100%;
     width: 100%;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     overflow: auto;
+    overflow-x: hidden;
+    background-color: #B7E0F2;
 }
 
 body {
-   /* outline: 1px solid red;*/
-    min-height: 100vh;
+    min-height: 100%;
     width: 100%;
+    margin: 0;
     padding: 0;
     overflow: auto; 
+    overflow-x: hidden;
 }
+
 
 html::-webkit-scrollbar, body::-webkit-scrollbar, main::-webkit-scrollbar {
     display: none;          
 }
 
+header {
+    font-family:'Courier New', Courier, monospace;
+    background-color: #B7E0F2;
+    color: #8C51BC;
+    overflow: hidden;
+    padding-top: 5px;
+}
+
 main {
+    background-color: #B7E0F2;
+    color: #8C51BC;
     min-height: 100vh;
     width: 100%;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     overflow: auto; 
+    overflow-x: hidden;
+    font-family:'Courier New', Courier, monospace;
+    letter-spacing: 2px;
 }
 
 img {
@@ -32,29 +54,52 @@ img {
     object-fit: cover;
 }
 
+figcaption {
+    padding-top: 10%;
+    font-weight: bold;
+    font-size: large;
+}
+
 footer {
+    background-color: #B7E0F2;
+    color: #8C51BC;
     bottom: 0;
     text-align: center;
-    border-top: 2px solid grey;
+    padding-top: 1%;
+    border-top: 2px solid #8C51BC;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    overflow: hidden;
 }
 
 .container-fluid {
-    height: fit-content;
-   /* border: 2px solid orange;*/
+    height: 100%;
 }
 
 .row {
     height: fit-content;
-    border-top: 2px solid grey;
+    border-top: 2px solid #8C51BC;
 }
 
 .col-4 {
-    border-right: 2px solid grey;
-    /*border: 2px solid green;*/
+    padding-top: 1.5%;
+}
+
+.vertical {
+    color: #8C51BC;
+    border-left: 2px solid #8C51BC;
+    height: 100vh;
+    height: 70%;
+    position: absolute;
+    left: 40%;
+    left: 33.2%;
+    top: 33%;
+    pointer-events: none;
 }
 
 .col-6 {
-    /*border: 2px solid purple;*/
+    min-height: fit-content;
+    padding-top: 1.5%;
     margin-left: 8%;
 }
 
@@ -62,20 +107,42 @@ footer {
     text-align: center;
 }
 
-.search-area {
+.dropdown-area {
     height: 20%;
     justify-self: center;
     padding-top: 2%;
 }
 
+.dropdown-input {
+  background-color: #F0E1FF;
+  color: #8C51BC;
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 1.2em;;
+}
+
+.dropdown-btn {
+  border: 2px solid #8C51BC !important;
+  padding: 10px 15px;
+  background-color: #F0E1FF;
+  color: #8C51BC;
+  border-color:#F0E1FF;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
 .list-items {
     font-size: 1.5em;
-    font-weight: bolder;
     margin-top: 3%;
 }
 
 .spaced-list {
-    padding-bottom: 5%;
+    padding-top: 5%;
+    display: block; 
+    margin-left: 27.5%;
+    
 }
 
 .flex {
@@ -84,38 +151,55 @@ footer {
     height: 65%;
     justify-content: flex-start;
     margin: 5% 0 5% 0;
-   /* border: 2px solid teal;*/
 }
 
 .movie-pic-box {
-    border: 2px solid grey;
-    width: 25%;
+    border: 2px solid #8C51BC;
+    box-shadow: 0 8px 16px #8C51BC;
+    width: 30%;
     height: 100%;
     aspect-ratio: 2/3;
     margin-right: 5%;
 }
 
-.movie-thumbnail img {
+img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .movie-desc-box {
-    border: 2px solid grey;
-    border-radius: 5%;
+    border: 2px solid #8C51BC;
+    box-shadow: 0 8px 16px #8C51BC;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px 0 0 10px;
     width: 60%;
-    height: 50%;
-    margin-top: 9%;
+    height: 65%;
+    margin-top: 6%;
+    display: -webkit-box;
+    line-clamp: 8;
+    -webkit-line-clamp: 8; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.6em;
 }
 
-.reroll-button {
-    border: 2px solid grey;
+.reroll-btn {
+    border: 2px solid #8C51BC !important;
     text-align: center;
-    margin-left: 30%;
-    width: 20%;
-    height: 10%;
-    font-size: 2em;
-    font-weight: bolder;
+    margin-left: 50%;
+    font-size: 1.7em;
+    padding: 3px 15px;
+    background-color: #F0E1FF;
+    color: #8C51BC;
+    border-color:#F0E1FF;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
+.reroll-btn:active, .dropdown-btn:active {
+    background-color: #F0E1FF;
+    transform: translate(3px, 3px);
+}
