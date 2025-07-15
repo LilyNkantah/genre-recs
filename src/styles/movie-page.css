@@ -48,6 +48,10 @@ main {
     letter-spacing: 2px;
 }
 
+form {
+    gap: 1%;
+}
+
 img {
     width: 100%;
     height: 100%;
@@ -131,6 +135,7 @@ footer {
   border-radius: 10px;
   cursor: pointer;
   font-size: 1.2em;
+  
 }
 
 .list-items {

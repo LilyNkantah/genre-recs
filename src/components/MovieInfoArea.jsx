@@ -1,9 +1,10 @@
 function MovieInfoArea() {
+    return (
     <div className="col-6">
         <h2 className="centred-header">Chosen Title:</h2>
         <div className="flex">
             <div className="movie-pic-box">
-                <img id="movie-pic" src="C:/Users/Liberty Nkantah/Programming Projects/my-first-react-app/images/avengers-civil-war-poster.jpg" />
+                <img id="movie-pic" src="" />
                 <figcaption id="movie-title-text">Captain America: Civil War</figcaption>
             </div>
             <div id="movie-desc" className="movie-desc-box">
@@ -18,6 +19,7 @@ function MovieInfoArea() {
         </div>
         <input type="submit" className="reroll-btn" value="Reroll" />
     </div>
+    );
 }
 
 export default MovieInfoArea;

@@ -1,5 +1,6 @@
 function DropdownArea() {
-    <form>
+    return (
+    <div>
         <select className="dropdown-input" placeholder="Add a Genre...">
             <option value="adventure">Adventure</option>
             <option value="action">Action</option>
@@ -13,9 +14,12 @@ function DropdownArea() {
             <option value="musical">Musical</option>
             <option value="sports">Sports</option>
             <option value="western">Western</option>
-        </select>
-        <input type="submit" className="dropdown-btn" value="Add Genre" />
-    </form>
+        </select>&nbsp;
+        <input type="button" className="dropdown-btn" value="Add Genre" />
+        <br />
+        <br />
+    </div>
+    );
 }
 
 export default DropdownArea;

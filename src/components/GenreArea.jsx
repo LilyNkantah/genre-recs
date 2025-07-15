@@ -1,4 +1,5 @@
 function GenreArea() {
+    return (
     <div className="col-4">
     <h2 className="centred-header">Genres Present:</h2>
         <ul id="chosen-genre-list" className="list-items">
@@ -8,6 +9,7 @@ function GenreArea() {
             <li className="spaced-list">Genre 4</li>
         </ul>
     </div>
+    );
 }
 
 export default GenreArea;
