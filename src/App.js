@@ -1,8 +1,20 @@
 //import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import DropdownArea from './components/DropdownArea';
+import GenreArea from './components/GenreArea';
+import MovieInfoArea from './components/MovieInfoArea';
+import './styles/movie-page.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function FilterableMovieGrid({movies}) {
-return (
+/* should go:
+  search area stuff
+  horizontal divider
+  movie grid which contains both theme card and movie card
+*/
+
+  return (
   <div>
     <SearchBar />
     <MovieGrid movies={movies} />
@@ -10,7 +22,7 @@ return (
 );
 }
 
-function SearchBar() {
+function SearchBar() { //search area stuff needs to go in here
 return (
   <form>
     <input type="text" placeholder="Search themes..." />
@@ -19,6 +31,11 @@ return (
 }
 
 function MovieGrid({movies}) {
+  /* should go:
+  theme card
+  vertical divider
+  movie card
+*/
   const themeEntries = [];
   
   movies.forEach((movie) => { 
@@ -42,7 +59,7 @@ function MovieGrid({movies}) {
   );
 }
 
-function ThemeRow({movies}) {
+function ThemeRow({movies}) { //this is where all the theme card stuff should go
 return (
   <table>
     <thead>
@@ -56,7 +73,7 @@ return (
 );
 }
 
-function MovieInfo({movies}) {
+function MovieInfo({movies}) { //this is where all the movie card stuff should go
 return (
   <>
     <div>
@@ -79,5 +96,30 @@ const MOVIES = [
 ];
 
 export default function App() {
-  return <FilterableMovieGrid movies={MOVIES} />;
+  /* should go:
+  header (need to make it a component)
+  main which contains filterable movie grid
+  footer (need to make it a component)
+  horizontal divider
+  movie grid which contains both theme card and movie card
+*/
+
+  return (
+    <div>
+      <Header />
+      <main>
+        <div className="container-fluid">
+          <div className="dropdown-area">
+            <DropdownArea />
+          </div>
+          <div className="row">
+            <GenreArea />
+            <div className="vertical"></div>
+            <MovieInfoArea />
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
 }

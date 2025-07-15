@@ -1,0 +1,23 @@
+function MovieInfoArea() {
+    <div className="col-6">
+        <h2 className="centred-header">Chosen Title:</h2>
+        <div className="flex">
+            <div className="movie-pic-box">
+                <img id="movie-pic" src="C:/Users/Liberty Nkantah/Programming Projects/my-first-react-app/images/avengers-civil-war-poster.jpg" />
+                <figcaption id="movie-title-text">Captain America: Civil War</figcaption>
+            </div>
+            <div id="movie-desc" className="movie-desc-box">
+                With many people fearing the actions of super heroes, the government decides to push for the Hero Registration Act, 
+                a law that limits a hero's actions. This results in a division in The Avengers. Iron Man stands with this Act, 
+                claiming that their actions must be kept in check otherwise cities will continue to be destroyed, but Captain 
+                America feels that saving the world is daring enough and that they cannot rely on the government to protect the 
+                world. This escalates into an all-out war between Team Iron Man (Iron Man, Black Panther, Vision, Black Widow, War 
+                Machine, and Spider-Man) and Team Captain America (Captain America, Bucky Barnes, Falcon, Scarlet Witch, Hawkeye, 
+                and Ant Man) while a new villain emerges.
+            </div>
+        </div>
+        <input type="submit" className="reroll-btn" value="Reroll" />
+    </div>
+}
+
+export default MovieInfoArea;
