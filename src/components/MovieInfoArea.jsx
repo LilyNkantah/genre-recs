@@ -1,10 +1,12 @@
+import avengersPic from '../images/avengers-civil-war-poster.jpg';
+
 function MovieInfoArea() {
     return (
     <div className="col-6">
         <h2 className="centred-header">Chosen Title:</h2>
         <div className="flex">
             <div className="movie-pic-box">
-                <img id="movie-pic" src="" />
+                <img id="movie-pic" src={avengersPic} alt="movie poster" />
                 <figcaption id="movie-title-text">Captain America: Civil War</figcaption>
             </div>
             <div id="movie-desc" className="movie-desc-box">
@@ -17,7 +19,7 @@ function MovieInfoArea() {
                 and Ant Man) while a new villain emerges.
             </div>
         </div>
-        <input type="submit" className="reroll-btn" value="Reroll" />
+        <input type="button" className="reroll-btn" value="Reroll" />
     </div>
     );
 }
