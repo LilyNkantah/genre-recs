@@ -5,67 +5,27 @@ import GenreArea from './components/GenreArea';
 import MovieInfoArea from './components/MovieInfoArea';
 import './styles/movie-page.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { imdbIdsGenres } from './imdbIdsGenres';
 import { useState } from 'react';
 
-function FilterableMovieGrid({movies}) {
-
-}
-
-/*  function Dropdown() { 
-    //put functionality for adding genre to page here. when clicked, it should be added to list
-    console.log("entered func");
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", setupAddGenreBtn);
-    } else {
-      setupAddGenreBtn();
-    }
-  }
-
-  function setupAddGenreBtn() {
-    console.log("entered inner func");
-    const genreDropdown = document.getElementById("genre-dropdown");
-    const addGenreBtn = document.getElementById("add-genre-btn");
-
-    if (addGenreBtn) {
-      addGenreBtn.addEventListener("click", () => {
-      const selectedGenre = genreDropdown.value;
-      console.log("Selected genre: ", selectedGenre);
-    })
-    } else {
-      console.log("button null");
-    }
-  }
+/* TO-DO:
+1. Function in MovieInfoArea that is called when 'Reroll' is clicked. 
+   This is where chosen genres are used against full id dictionary to get smaller list of genre-matching ids. 
+   Then, a random id will be picked from that list and passed as param to getRandomMovie(). Then, may need to 
+   reset smaller list back to empty.
+2. getRandomMovie() is where the actual interaction with the API will be. use i = param_id, will need movie; title, poster, plot.
+3. In the event user chooses combo of genres that no movie fits, poster area "No movie found", title "N/A", plot area "N/A".
 */
 
-function MovieGrid({movies}) {
-  const themeEntries = [];
-  
-  movies.forEach((movie) => { 
-    /*iterate through movie.theme for each movie. add it to themeEntries list if it does not already exist
-    if !movie.theme.contains(...) {
-      themeEntries.push(
-        <ThemeRow theme={movie.theme[i]} />
-      ) 
-    }*/
-  });
-}
-
-function ThemeRow({movies}) { 
-
-}
-
-function MovieInfo({movies}) { 
-
-}
 
 export default function App() {
-  // 'genres' is array that holds list of selected genres
-  // 'setGenres' is function to update array
+  // 'genres' array holds list of selected genres
+  // 'setGenres' function updates the array
   // 'useState([])' initialises 'genres' as empty array
   const [genres, setGenres] = useState([]);
 
   // adds new genre to list when called
-  // '(genre)' is new string passed in from DropdownArea comp via 'onAdd'
+  // '(genre)' is new string passed in from DropdownArea via 'onAdd'
   // '...genres' spreads the existing items in the list
   // 'genre' adds new one to the end of the list
   const addGenre = (genre) => {

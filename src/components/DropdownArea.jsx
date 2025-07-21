@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 
-// so far, genre chosen is recognised. need to add them to a list so i can check list doesnt already contain x genre, 
-// and so i can display on page from the list
 function DropdownArea({ onAdd }) {
-    // 'selected' holds current select value from dropdown (initialised as empty string "")
-    // 'setSelected' is a function to update 'selected'
-    // 'useState("") initialises 'selected' with empty string ""
+    // 'selected' holds current selected value from dropdown (initialised as empty string "")
+    // 'setSelected' function updates 'selected'
+    // 'useState("")' initialises 'selected' with the empty string ""
     const [selected, setSelected] = useState("");
 
     // 'e' is event object passed from browser
@@ -15,10 +13,8 @@ function DropdownArea({ onAdd }) {
         setSelected(e.target.value);
     };
 
-    // runs when "Add Genre" button is clicked
     // checks if 'selected' has a value (not empty)
-    // then calls onAdd(...), which is a function passed from parent component (e.g. App.js) 
-    //  to handle what to do with selected value (e.g. ADD IT TO A LIST)
+    // then calls onAdd(...) to handle what is done with selected value (e.g. ADD IT TO A LIST)
     const handleClick = () => {
         if (selected) {
             onAdd(selected);
@@ -36,12 +32,14 @@ function DropdownArea({ onAdd }) {
             <option value="Comedy">Comedy</option>
             <option value="Thriller/Mystery">Thriller/Mystery</option>
             <option value="Horror">Horror</option>
+            <option value="Crime">Crime</option>
             <option value="Romance">Romance/Rom-Com</option>
             <option value="Sci-Fi">Sci-Fi</option>
             <option value="Fantasy">Fantasy</option>
             <option value="Musical">Musical</option>
-            <option value="Sports">Sports</option>
+            <option value="Sport">Sport</option>
             <option value="Western">Western</option>
+            <option value="Biography">Biography</option>
         </select>&nbsp;
         <input type="button" id="add-genre-btn" className="dropdown-btn" onClick={handleClick} value="Add Genre" />
         <br />
@@ -49,20 +47,5 @@ function DropdownArea({ onAdd }) {
     </div>
     );
 }
-
-/*function setupAddGenreBtn() {
-  console.log("entered inner func");
-  const genreDropdown = document.getElementById("genre-dropdown");
-  const addGenreBtn = document.getElementById("add-genre-btn");
-
-  if (addGenreBtn) {
-    addGenreBtn.addEventListener("click", () => {
-    const selectedGenre = genreDropdown.value;
-    console.log("Selected genre: ", selectedGenre);
-  })
-  } else {
-    console.log("button null");
-  }
-}*/
 
 export default DropdownArea;

@@ -1,4 +1,15 @@
-import avengersPic from '../images/avengers-civil-war-poster.jpg';
+import avengersPic from '../images/avengers-civil-war-poster.jpg'; //test data, to be removed later
+import { imdbIdsGenres } from '../imdbIdsGenres';
+
+// this will take an id as a parameter
+// may have another function (should be in Movie) which is called before this one that gets list of ids 
+//  that match chosen genres, then pick random id from that list and pass it to this function
+function getRandomMovie() {
+  // get response from API request, turn it into JS object, then get that value and call it data, then you can use it
+  fetch("http://www.omdbapi.com/?apikey=f3eb4f32&i=tt1285016")
+  .then((response) => response.json())
+  .then((data) => { console.log(data); })
+}
 
 function MovieInfoArea() {
     return (
