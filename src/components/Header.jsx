@@ -1,7 +1,7 @@
 function Header() {
     return (
         <header>
-            <h1 className="centred-header">Genre-Based Movie Recommendations</h1>
+            <h1 className="centred-header">GenreRecs</h1>
         </header>
     );
 }
