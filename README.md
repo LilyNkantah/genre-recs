@@ -1,1 +1,1 @@
-I made this website, called GenreRecs, to provide random recommendations from the top 1000 movies (rated by Imdb) given a chosen genre, or set of genres. It will provide random recs upon "rerolling", whether any genres are specified or not.
+I made this website, called GenreRecs, to provide random recommendations from the top 1000 movies (rated by Imdb) given a chosen genre, or set of genres. It will provide random recs upon "rerolling", whether any genres are specified or not. It is accessible through Netlify here: https://effortless-otter-e95cba.netlify.app/
