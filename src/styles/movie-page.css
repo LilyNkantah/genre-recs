@@ -186,6 +186,10 @@ img {
   object-fit: cover;
 }
 
+.no-title {
+    padding-top: 122%;
+}
+
 .movie-desc-box {
     border: 2px solid #8C51BC;
     box-shadow: 0 8px 16px #8C51BC;
@@ -207,10 +211,9 @@ img {
 .clear-btn {
     border: 2px solid #8C51BC !important;
     text-align: center;
-    position: fixed;
+    position: absolute;
     left: 10%;
-    bottom: 20%;
-    
+    bottom: 15%;
     font-size: 1.7em;
     padding: 3px 15px;
     background-color: #F0E1FF;

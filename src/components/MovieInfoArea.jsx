@@ -1,37 +1,77 @@
-import avengersPic from '../images/avengers-civil-war-poster.jpg'; //test data, to be removed later
 import { imdbIdsGenres } from '../imdbIdsGenres';
+import Axios from "axios";
+import { useState } from 'react';
 
-// this will take an id as a parameter
-// may have another function (should be in Movie) which is called before this one that gets list of ids 
-//  that match chosen genres, then pick random id from that list and pass it to this function
-function getRandomMovie() {
-  // get response from API request, turn it into JS object, then get that value and call it data, then you can use it
-  fetch("http://www.omdbapi.com/?apikey=f3eb4f32&i=tt1285016")
-  .then((response) => response.json())
-  .then((data) => { console.log(data); })
-}
+function MovieInfoArea({ chosenGenres }) {
+    //JSON.parse(JSON.stringify(...)) lets you create deep copy so modifying one copy doesnt affect the other
+    const originalImdbIdsGenres = JSON.parse(JSON.stringify(imdbIdsGenres));
+    const handleClick = ({ chosenGenres }) => {
+        console.log("original: ", Object.keys(originalImdbIdsGenres).length);
+        let filteredImdbIdsGenres = JSON.parse(JSON.stringify(originalImdbIdsGenres));
+        console.log("chosen list: ", chosenGenres);
+        for (const genre of chosenGenres) {
+            console.log("gen: ", genre);
+            for (const [id, genres] of Object.entries(filteredImdbIdsGenres)) {
+                if (!genres.includes(genre)) {
+                    console.log("ENTERED IF");
+                    delete filteredImdbIdsGenres[id];
+                }
+            }
+        }
+        //at this point, dictionary only has movies that fit chosen genres
+        console.log("length: ", Object.keys(filteredImdbIdsGenres).length);
+        const randomIndex = Math.floor(Math.random() * Object.keys(filteredImdbIdsGenres).length); 
+        const randomMovieId = (Object.keys(filteredImdbIdsGenres))[randomIndex];
+        console.log("random id: ", randomMovieId);
+        if (randomMovieId) {
+            getRandomMovie(randomMovieId);
+        } else {
+            setMovieData([null, null, null]);
+            console.warn("randomMovieId is undefined!");
+        }
+    }
 
-function MovieInfoArea() {
+    const [movieData, setMovieData] = useState([null, null, null]);
+
+    async function getRandomMovie(randomMovieId) {
+        try {
+            //have to use await and async function to store response when getting data from an API
+            const response = await Axios.get(`http://www.omdbapi.com/?apikey=f3eb4f32&i=${randomMovieId}`)
+            console.log("response: ", response);
+            setMovieData([response.data.Title, response.data.Plot, response.data.Poster]);
+        } catch (error) {
+            console.error("Failed to fetch movie data: ", error);
+        }
+    }
+
     return (
-    <div className="col-6">
-        <h2 className="centred-header">Chosen Title:</h2>
-        <div className="flex">
-            <div className="movie-pic-box">
-                <img id="movie-pic" src={avengersPic} alt="movie poster" />
-                <figcaption id="movie-title-text">Captain America: Civil War</figcaption>
+        <div className="col-6">
+            <h2 className="centred-header">Chosen Title:</h2>
+            <div className="flex">
+                <div className="movie-pic-box">
+                    {movieData[2] ? (
+                        <img id="movie-pic" src={movieData[2]} alt="movie poster" />
+                    ) : (
+                        <p>No poster available</p>
+                    )}
+                    <figcaption id="movie-title-text">
+                        {movieData[0] ? (
+                            <p>{movieData[0]}</p>
+                        ) : (
+                            <p className="no-title">No title available</p>
+                        )}
+                    </figcaption>
+                </div>
+                <div id="movie-desc" className="movie-desc-box">
+                    {movieData[1] ? (
+                        <p>{movieData[1]}</p>
+                    ) : (
+                        <p>No plot available</p>
+                    )}
+                </div>
             </div>
-            <div id="movie-desc" className="movie-desc-box">
-                With many people fearing the actions of super heroes, the government decides to push for the Hero Registration Act, 
-                a law that limits a hero's actions. This results in a division in The Avengers. Iron Man stands with this Act, 
-                claiming that their actions must be kept in check otherwise cities will continue to be destroyed, but Captain 
-                America feels that saving the world is daring enough and that they cannot rely on the government to protect the 
-                world. This escalates into an all-out war between Team Iron Man (Iron Man, Black Panther, Vision, Black Widow, War 
-                Machine, and Spider-Man) and Team Captain America (Captain America, Bucky Barnes, Falcon, Scarlet Witch, Hawkeye, 
-                and Ant Man) while a new villain emerges.
-            </div>
+            <input type="button" className="reroll-btn" onClick={() => handleClick({chosenGenres})} value="Reroll" />
         </div>
-        <input type="button" className="reroll-btn" value="Reroll" />
-    </div>
     );
 }
 
