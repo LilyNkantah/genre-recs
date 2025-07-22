@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer>
-            <p> 2025 Genre-Based Movie Recommendations Website&trade;</p>
+            <p>GenreRecs&trade;</p>
         </footer>
     );
 }
