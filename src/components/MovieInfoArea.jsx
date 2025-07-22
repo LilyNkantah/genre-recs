@@ -36,7 +36,7 @@ function MovieInfoArea({ chosenGenres }) {
     async function getRandomMovie(randomMovieId) {
         try {
             //have to use await and async function to store response when getting data from an API
-            const response = await Axios.get(`http://www.omdbapi.com/?apikey=f3eb4f32&i=${randomMovieId}`)
+            const response = await Axios.get(`https://www.omdbapi.com/?apikey=f3eb4f32&i=${randomMovieId}`)
             console.log("response: ", response);
             setMovieData([response.data.Title, response.data.Plot, response.data.Poster]);
         } catch (error) {
